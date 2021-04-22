@@ -87,64 +87,64 @@ CREATE TABLE ch_order_details(
 --DROP TABLE ch_goods;
 --DROP TABLE ch_categories;
 ----
-INSERT INTO ch_categories(name_ru,name_en) VALUES ('Десерт','Dessert');--1
-INSERT INTO ch_categories(name_ru,name_en) VALUES ('Напиток','Drink');--2
+INSERT INTO ch_categories(name_ru,name_en) VALUES ('Р”РµСЃРµСЂС‚','Dessert');--1
+INSERT INTO ch_categories(name_ru,name_en) VALUES ('РќР°РїРёС‚РѕРє','Drink');--2
 --
 INSERT INTO ch_goods(name_ru,name_en,category_id,price) VALUES 
-    ('Шмурдик','Shmurdik',2,7.50);--1
+    ('РЁРјСѓСЂРґРёРє','Shmurdik',2,7.50);--1
 INSERT INTO ch_goods(name_ru,name_en,category_id,price) VALUES 
-    ('Грымзик','Grymsik',2,17.00);--2
+    ('Р“СЂС‹РјР·РёРє','Grymsik',2,17.00);--2
 INSERT INTO ch_goods(name_ru,name_en,category_id,price) VALUES 
-    ('Дубаратор','Dubarator',2,10.35);--3
+    ('Р”СѓР±Р°СЂР°С‚РѕСЂ','Dubarator',2,10.35);--3
 INSERT INTO ch_goods(name_ru,name_en,category_id,price) VALUES 
-    ('Бздыш','Bzdysh',2,8.99);--4
+    ('Р‘Р·РґС‹С€','Bzdysh',2,8.99);--4
 INSERT INTO ch_goods(name_ru,name_en,category_id,price) VALUES 
-    ('Запырка','Zapyrka',1,37.00);--5
+    ('Р—Р°РїС‹СЂРєР°','Zapyrka',1,37.00);--5
 INSERT INTO ch_goods(name_ru,name_en,category_id,price) VALUES 
-    ('Охлотушка','Ohlotushka',1,48.00);--6
+    ('РћС…Р»РѕС‚СѓС€РєР°','Ohlotushka',1,48.00);--6
 INSERT INTO ch_goods(name_ru,name_en,category_id,price) VALUES 
-    ('Тумельница','Turmelnitsa',1,35.00);--7
+    ('РўСѓРјРµР»СЊРЅРёС†Р°','Turmelnitsa',1,35.00);--7
 INSERT INTO ch_goods(name_ru,name_en,category_id,price) VALUES 
-    ('Бурдылька','Burdylka',1,60.00);--8
+    ('Р‘СѓСЂРґС‹Р»СЊРєР°','Burdylka',1,60.00);--8
 --
-INSERT INTO ch_positions(name) VALUES ('Бариста');--1
-INSERT INTO ch_positions(name) VALUES ('Официант');--2
-INSERT INTO ch_positions(name) VALUES ('Кондитер');--3
+INSERT INTO ch_positions(name) VALUES ('Р‘Р°СЂРёСЃС‚Р°');--1
+INSERT INTO ch_positions(name) VALUES ('РћС„РёС†РёР°РЅС‚');--2
+INSERT INTO ch_positions(name) VALUES ('РљРѕРЅРґРёС‚РµСЂ');--3
 --
 INSERT INTO ch_employees(full_name,phone1,phone2,email,position_id) VALUES 
-    ('Кофеман Обжаренов','+380675552299',NULL,'koob@ch.ua',1);--1
+    ('РљРѕС„РµРјР°РЅ РћР±Р¶Р°СЂРµРЅРѕРІ','+380675552299',NULL,'koob@ch.ua',1);--1
 INSERT INTO ch_employees(full_name,phone1,phone2,email,position_id) VALUES 
-    ('Капучин Карамелькин','+380675552201','+380505552201','kaka@ch.ua',1);--2
+    ('РљР°РїСѓС‡РёРЅ РљР°СЂР°РјРµР»СЊРєРёРЅ','+380675552201','+380505552201','kaka@ch.ua',1);--2
 INSERT INTO ch_employees(full_name,phone1,phone2,email,position_id) VALUES 
-    ('Поднос Круглов','+380673331100','+380504446677','pokr@ch.ua',2);--3
+    ('РџРѕРґРЅРѕСЃ РљСЂСѓРіР»РѕРІ','+380673331100','+380504446677','pokr@ch.ua',2);--3
 INSERT INTO ch_employees(full_name,phone1,phone2,email,position_id) VALUES 
-    ('Чайник Свистунов','+380673331101','+380504446678','chasv@ch.ua',2);--4
+    ('Р§Р°Р№РЅРёРє РЎРІРёСЃС‚СѓРЅРѕРІ','+380673331101','+380504446678','chasv@ch.ua',2);--4
 INSERT INTO ch_employees(full_name,phone1,phone2,email,position_id) VALUES 
-    ('Патока Тортова','+380679998800',NULL,'pato@ch.ua',3);--5
+    ('РџР°С‚РѕРєР° РўРѕСЂС‚РѕРІР°','+380679998800',NULL,'pato@ch.ua',3);--5
 INSERT INTO ch_employees(full_name,phone1,phone2,email,position_id) VALUES 
-    ('Пончик Припудренков','+380679598830',NULL,'popr@ch.ua',3);--6
+    ('РџРѕРЅС‡РёРє РџСЂРёРїСѓРґСЂРµРЅРєРѕРІ','+380679598830',NULL,'popr@ch.ua',3);--6
 --
 INSERT INTO ch_clients(full_name,birthday,phone,address,discount) VALUES 
-    ('Васька Крутой','01.01.2000','+380670077700','пл. Центральная 5/7',15);--1
+    ('Р’Р°СЃСЊРєР° РљСЂСѓС‚РѕР№','01.01.2000','+380670077700','РїР». Р¦РµРЅС‚СЂР°Р»СЊРЅР°СЏ 5/7',15);--1
 INSERT INTO ch_clients(full_name,birthday,phone,address,discount) VALUES 
-    ('Пуська Рыжая','07.07.1998','+380670101010','ул. Окружная 1-б',10);--2
+    ('РџСѓСЃСЊРєР° Р С‹Р¶Р°СЏ','07.07.1998','+380670101010','СѓР». РћРєСЂСѓР¶РЅР°СЏ 1-Р±',10);--2
 INSERT INTO ch_clients(full_name,birthday,phone,address,discount) VALUES 
-    ('Бабка Дикая','05.04.1945','+380671234567',NULL,5);--3
+    ('Р‘Р°Р±РєР° Р”РёРєР°СЏ','05.04.1945','+380671234567',NULL,5);--3
 INSERT INTO ch_clients(full_name,birthday,phone) VALUES 
-    ('Дед Рыхлый','12.12.1912','+380677654321');--4
+    ('Р”РµРґ Р С‹С…Р»С‹Р№','12.12.1912','+380677654321');--4
 --
 INSERT INTO ch_shedules_static(weekday,begintime,endtime) VALUES 
-    ('Понедельник','08:00','19:00');--1
+    ('РџРѕРЅРµРґРµР»СЊРЅРёРє','08:00','19:00');--1
 INSERT INTO ch_shedules_static(weekday,begintime,endtime) VALUES 
-    ('Вторник','08:00','19:00');--2
+    ('Р’С‚РѕСЂРЅРёРє','08:00','19:00');--2
 INSERT INTO ch_shedules_static(weekday,begintime,endtime) VALUES 
-    ('Среда','08:00','19:00');--3
+    ('РЎСЂРµРґР°','08:00','19:00');--3
 INSERT INTO ch_shedules_static(weekday,begintime,endtime) VALUES 
-    ('Четверг','08:00','19:00');--4
+    ('Р§РµС‚РІРµСЂРі','08:00','19:00');--4
 INSERT INTO ch_shedules_static(weekday,begintime,endtime) VALUES 
-    ('Пятница','08:00','19:00');--5
+    ('РџСЏС‚РЅРёС†Р°','08:00','19:00');--5
 INSERT INTO ch_shedules_static(weekday,begintime,endtime) VALUES 
-    ('Суббота','09:00','18:00');--6
+    ('РЎСѓР±Р±РѕС‚Р°','09:00','18:00');--6
 INSERT INTO ch_shedules_static(weekday,begintime,endtime) VALUES 
-    ('Воскресенье','10:00','17:00');--7
+    ('Р’РѕСЃРєСЂРµСЃРµРЅСЊРµ','10:00','17:00');--7
 ------
