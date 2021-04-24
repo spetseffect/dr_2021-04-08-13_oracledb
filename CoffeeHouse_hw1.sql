@@ -88,7 +88,10 @@ UPDATE ch_orders o
                         WHERE order_id=o.id)
     WHERE o.id=2;
 --Изменить название уже существующего десерта
-
+UPDATE ch_goods
+    SET name_ru='Бурдылька Золотая',
+        name_en='Golden Burdylka'
+    WHERE id=8;
 --Удалить конкретный заказ
 
 --Удалить заказы конкретного десерта
