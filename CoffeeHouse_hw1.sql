@@ -28,7 +28,7 @@ BEGIN
     UPDATE ch_orders o
         SET o.total_sum=(SELECT SUM(price*quantity) "sum" 
                             FROM ch_order_details 
-                            WHERE order_id=o.id)
+                            WHERE order_id=o.id)*(1-o.discount/100)
         WHERE o.id=sid;
 END;
 --ƒобавление информации о новом заказе десерта
@@ -56,7 +56,7 @@ BEGIN
     UPDATE ch_orders o
         SET o.total_sum=(SELECT SUM(price*quantity) "sum"
                             FROM ch_order_details 
-                            WHERE order_id=o.id)
+                            WHERE order_id=o.id)*(1-o.discount/100)
         WHERE o.id=sid;
 END;
 --ƒобавление информации о графике работы в ближайший понедельник
@@ -85,7 +85,7 @@ UPDATE ch_order_details
 UPDATE ch_orders o
     SET o.total_sum=(SELECT SUM(price*quantity) "sum"
                         FROM ch_order_details 
-                        WHERE order_id=o.id)
+                        WHERE order_id=o.id)*(1-o.discount/100)
     WHERE o.id=2;
 --»зменить название уже существующего десерта
 UPDATE ch_goods
@@ -100,10 +100,20 @@ UPDATE ch_order_details
     SET deleted='Y'
     WHERE order_id=1;
 --”далить заказы конкретного десерта
-
+----корректировка задани€: ”далить заказы в которых присутствует конкретный десерт
+UPDATE ch_orders
+    SET deleted='Y'
+    WHERE id IN (SELECT order_id
+                    FROM ch_order_details
+                    WHERE product_id=5);
+UPDATE ch_order_details
+    SET deleted='Y'
+    WHERE order_id IN (SELECT order_id
+                    FROM ch_order_details
+                    WHERE product_id=5);                    
 --”далите расписание работы на конкретный день
 
---”далите расписание работы на конкретный промежуток между указанными датами
+--”далите расписание работы на конкретный промежуток между указанными датами
 
 --ѕоказать все заказы конкретного десерта
 
