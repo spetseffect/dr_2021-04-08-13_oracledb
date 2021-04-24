@@ -93,7 +93,12 @@ UPDATE ch_goods
         name_en='Golden Burdylka'
     WHERE id=8;
 --Удалить конкретный заказ
-
+UPDATE ch_orders
+    SET deleted='Y'
+    WHERE id=1;
+UPDATE ch_order_details
+    SET deleted='Y'
+    WHERE order_id=1;
 --Удалить заказы конкретного десерта
 
 --Удалите расписание работы на конкретный день
