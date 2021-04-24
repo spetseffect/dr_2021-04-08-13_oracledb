@@ -55,6 +55,7 @@ CREATE TABLE ch_holidays(
     ,endtime CHAR(5) NULL
 );
 CREATE TABLE ch_orders(
+    --автоинкремент работает через последовательность
     id INT PRIMARY KEY--GENERATED AS IDENTITY PRIMARY KEY
     ,created_on TIMESTAMP NOT NULL
     ,closed_on TIMESTAMP NULL
