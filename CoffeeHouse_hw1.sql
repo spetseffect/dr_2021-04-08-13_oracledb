@@ -125,15 +125,12 @@ INSERT INTO ch_holidays(target_date_begin,target_date_end) VALUES
 SELECT o.*
     FROM ch_orders o
         LEFT JOIN ch_order_details od ON od.order_id=o.id
-    WHERE od.product_id=5
+    WHERE od.product_id=5;
 --Показать расписание работы на конкретный день
 
 --Показать все заказы конкретного официанта
-
+SELECT *
+    FROM ch_orders
+    WHERE employee_id=3;
 --Показать все заказы конкретного клиента
 
---Задание 5
---Добавьте к четвертому заданию следующую функциональность:
---Добавление строки;
---Удаление строки;
---Обновление строки
