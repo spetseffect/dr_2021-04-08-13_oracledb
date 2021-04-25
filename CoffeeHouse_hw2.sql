@@ -27,7 +27,13 @@ SELECT c.id
     FROM ch_clients c
     WHERE c.birthday=(SELECT MAX(birthday) FROM ch_clients);
 --Показать самого возрастного клиента
-
+SELECT c.id
+        ,c.full_name
+        ,c.birthday
+        ,EXTRACT(YEAR FROM (SYSDATE-c.birthday) YEAR TO MONTH) "AGE"
+        ,c.discount
+    FROM ch_clients c
+    WHERE c.birthday=(SELECT MIN(birthday) FROM ch_clients);
 --Показать клиентов, у которых день рождения в этот день
 
 --Показать клиентов, у которых не заполнен контактный почтовый адрес
