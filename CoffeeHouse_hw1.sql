@@ -133,4 +133,6 @@ SELECT *
     FROM ch_orders
     WHERE employee_id=3;
 --Показать все заказы конкретного клиента
-
+SELECT *
+    FROM ch_orders
+    WHERE client_id=4;
