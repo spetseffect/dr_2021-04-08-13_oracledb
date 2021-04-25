@@ -134,7 +134,16 @@ SELECT MAX(o.total_sum)
                 CAST(CAST(o.created_on AS DATE) AS VARCHAR(10))
         AND o.deleted='N';
 --Показать клиента, который совершил максимальную сумму заказа в конкретную дату
-
+SELECT c.full_name,c.birthday,c.discount,c.phone,c.deleted
+    FROM ch_orders o
+        LEFT JOIN ch_clients c ON c.id=o.client_id
+    WHERE o.total_sum=(SELECT MAX(total_sum)
+                            FROM ch_orders
+                            WHERE CAST(TO_DATE('25.04.2021') AS VARCHAR(10))=
+                                        CAST(CAST(created_on AS DATE) AS VARCHAR(10))
+                                AND deleted='N')
+        AND CAST(TO_DATE('25.04.2021') AS VARCHAR(10))=
+                CAST(CAST(o.created_on AS DATE) AS VARCHAR(10));
 --Показать расписание работы конкретного бариста на неделю
 ----в текущей БД график работы задан для всей кофейни, 
 ----соответственно у всех работников одинаковый график
