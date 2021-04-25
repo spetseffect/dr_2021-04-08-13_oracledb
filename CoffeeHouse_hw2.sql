@@ -5,7 +5,7 @@ ALTER SESSION SET
     NLS_TIMESTAMP_FORMAT = 'DD.MM.YYYY HH24:MI:SS';
 ----
 --Показать минимальную скидку для клиента
-
+SELECT MIN(discount) FROM ch_clients;
 --Показать максимальную скидку для клиента
 
 --Показать клиентов с минимальной скидкой и величину скидки
