@@ -61,7 +61,7 @@ BEGIN
 END;
 --Добавление информации о графике работы в ближайший понедельник
 ----ближайший понедельник - выходной
-INSERT INTO ch_holidays(tartarget_date_begin,tartarget_date_end) VALUES 
+INSERT INTO ch_holidays(target_date_begin,target_date_end) VALUES 
     (NEXT_DAY(SYSDATE, 'Понедельник'),NEXT_DAY(SYSDATE, 'Понедельник'));
 --Добавление информации о новом виде кофе
 INSERT INTO ch_goods(name_ru,name_en,category_id,price) VALUES 
@@ -69,10 +69,10 @@ INSERT INTO ch_goods(name_ru,name_en,category_id,price) VALUES
 --Изменить расписание работы на ближайший вторник
 ----сократить рабочий день на 1 час утром и 1 час вечером. 
 ----указать нерабочее время относительно основного графика
-INSERT INTO ch_holidays(target_date,begintime,endtime) VALUES 
-    (NEXT_DAY(SYSDATE, 'вторник'),NEXT_DAY(SYSDATE, 'вторник'),'08:00','09:00');
-INSERT INTO ch_holidays(target_date,begintime,endtime) VALUES 
-    (NEXT_DAY(SYSDATE, 'вторник'),NEXT_DAY(SYSDATE, 'вторник'),'18:00','19:00');
+INSERT INTO ch_holidays(target_date_begin,target_date_end,begintime,endtime) VALUES 
+    (NEXT_DAY(SYSDATE, 'вторник'),NEXT_DAY(SYSDATE, 'Вторник'),'08:00','09:00');
+INSERT INTO ch_holidays(target_date_begin,target_date_end,begintime,endtime) VALUES 
+    (NEXT_DAY(SYSDATE, 'вторник'),NEXT_DAY(SYSDATE, 'Вторник'),'18:00','19:00');
 --Изменить название уже существующего вида кофе
 UPDATE ch_goods
     SET name_ru='Бздыш Болотный',
@@ -117,7 +117,9 @@ UPDATE ch_order_details
 DELETE FROM ch_shedules_static
     WHERE weekday='Воскресенье';
 --Удалите расписание работы на конкретный промежуток между указанными датами
-
+----выходные на конкретный промежуток между указанными датами
+INSERT INTO ch_holidays(target_date_begin,target_date_end) VALUES 
+    (TO_DATE('30.04.2021'),TO_DATE('10.05.2021'));
 --Показать все заказы конкретного десерта
 
 --Показать расписание работы на конкретный день
