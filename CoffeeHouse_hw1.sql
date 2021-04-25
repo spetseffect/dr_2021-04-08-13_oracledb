@@ -121,7 +121,11 @@ DELETE FROM ch_shedules_static
 INSERT INTO ch_holidays(target_date_begin,target_date_end) VALUES 
     (TO_DATE('30.04.2021'),TO_DATE('10.05.2021'));
 --Показать все заказы конкретного десерта
-
+----заказы в которых присутствует конкретный десерт, в том числе удалённые
+SELECT o.*
+    FROM ch_orders o
+        LEFT JOIN ch_order_details od ON od.order_id=o.id
+    WHERE od.product_id=5
 --Показать расписание работы на конкретный день
 
 --Показать все заказы конкретного официанта
