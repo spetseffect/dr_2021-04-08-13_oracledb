@@ -13,7 +13,9 @@ SELECT c.id, c.full_name, c.discount
     FROM ch_clients c
     WHERE c.discount=(SELECT MIN(discount) FROM ch_clients);
 --Показать клиентов с максимальной скидкой и величину скидки
-
+SELECT c.id, c.full_name, c.discount
+    FROM ch_clients c
+    WHERE c.discount=(SELECT MAX(discount) FROM ch_clients);
 --Показать среднюю величину скидки
 
 --Показать самого молодого клиента
