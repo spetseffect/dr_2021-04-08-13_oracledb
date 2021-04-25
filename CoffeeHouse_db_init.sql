@@ -50,7 +50,8 @@ CREATE TABLE ch_shedules_static(
 );
 CREATE TABLE ch_holidays(
     --identifier is useless
-    target_date DATE NOT NULL
+    target_date_begin DATE NOT NULL
+    ,target_date_end DATE NOT NULL
     ,begintime CHAR(5) NULL
     ,endtime CHAR(5) NULL
 );

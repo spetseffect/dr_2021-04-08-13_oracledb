@@ -61,7 +61,8 @@ BEGIN
 END;
 --Добавление информации о графике работы в ближайший понедельник
 ----ближайший понедельник - выходной
-INSERT INTO ch_holidays(target_date) VALUES (NEXT_DAY(SYSDATE, 'Понедельник'));
+INSERT INTO ch_holidays(tartarget_date_begin,tartarget_date_end) VALUES 
+    (NEXT_DAY(SYSDATE, 'Понедельник'),NEXT_DAY(SYSDATE, 'Понедельник'));
 --Добавление информации о новом виде кофе
 INSERT INTO ch_goods(name_ru,name_en,category_id,price) VALUES 
     ('Бутряк','Butriak',2,20.10);
@@ -69,9 +70,9 @@ INSERT INTO ch_goods(name_ru,name_en,category_id,price) VALUES
 ----сократить рабочий день на 1 час утром и 1 час вечером. 
 ----указать нерабочее время относительно основного графика
 INSERT INTO ch_holidays(target_date,begintime,endtime) VALUES 
-    (NEXT_DAY(SYSDATE, 'вторник'),'08:00','09:00');
+    (NEXT_DAY(SYSDATE, 'вторник'),NEXT_DAY(SYSDATE, 'вторник'),'08:00','09:00');
 INSERT INTO ch_holidays(target_date,begintime,endtime) VALUES 
-    (NEXT_DAY(SYSDATE, 'вторник'),'18:00','19:00');
+    (NEXT_DAY(SYSDATE, 'вторник'),NEXT_DAY(SYSDATE, 'вторник'),'18:00','19:00');
 --Изменить название уже существующего вида кофе
 UPDATE ch_goods
     SET name_ru='Бздыш Болотный',
