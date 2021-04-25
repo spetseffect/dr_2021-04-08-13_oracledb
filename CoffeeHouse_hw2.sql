@@ -64,7 +64,7 @@ SELECT *
     WHERE created_on BETWEEN TO_DATE('18.04.2021') AND TO_DATE('30.04.2021')
         AND deleted='N';
 --Показать количество заказов десертов в конкретную дату
-----учитывается только количество видов десертов (без учёта количества порций)
+----учитывается только количество видов десертов в заказе (без учёта количества порций)
 SELECT COUNT(*)
     FROM ch_orders o
         LEFT JOIN ch_order_details od ON od.order_id=o.id
@@ -83,11 +83,44 @@ SELECT SUM(od.quantity)
         AND g.category_id=1
         AND od.deleted='N';
 --Показать количество заказов напитков в конкретную дату
-
+----учитывается только количество видов напитков в заказе (без учёта количества порций)
+SELECT COUNT(*)
+    FROM ch_orders o
+        LEFT JOIN ch_order_details od ON od.order_id=o.id
+        LEFT JOIN ch_goods g ON g.id=od.product_id
+    WHERE CAST(TO_DATE('25.04.2021') AS VARCHAR(10))=
+                CAST(CAST(o.created_on AS DATE) AS VARCHAR(10))
+        AND g.category_id=2
+        AND od.deleted='N';
 --Показать информацию о клиентах, которые заказывали напитки сегодня.
 ---Кроме информации о клиенте, нужно показывать информацию о бариста,
 ---который сделал напиток
-
+SELECT q.client_name
+        ,q.client_birthday
+        ,q.client_discount
+        ,q.client_phone
+        ,q.client_deleted
+        ,e.full_name employee_name
+        ,e.phone1 employee_phone1
+        ,p.name employee_position
+        ,e.deleted employee_deleted
+    FROM (SELECT DISTINCT
+                c.full_name client_name
+                ,c.birthday client_birthday
+                ,c.discount client_discount
+                ,c.phone client_phone
+                ,c.deleted client_deleted
+                ,o.employee_id
+            FROM ch_clients c
+                LEFT JOIN ch_orders o ON o.client_id=c.id
+                LEFT JOIN ch_order_details od ON od.order_id=o.id
+                LEFT JOIN ch_goods g ON g.id=od.product_id
+            WHERE CAST(SYSDATE AS VARCHAR(10))=
+                        CAST(CAST(o.created_on AS DATE) AS VARCHAR(10))
+                AND g.category_id=2
+                AND od.deleted='N') q
+        LEFT JOIN ch_employees e ON e.id=q.employee_id
+        LEFT JOIN ch_positions p ON p.id=e.position_id;
 --Показать среднюю сумму заказа в конкретную дату
 
 --Показать максимальную сумму заказа в конкретную дату
