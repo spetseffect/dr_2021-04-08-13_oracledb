@@ -128,7 +128,11 @@ SELECT AVG(o.total_sum)
                 CAST(CAST(o.created_on AS DATE) AS VARCHAR(10))
         AND o.deleted='N';
 --Показать максимальную сумму заказа в конкретную дату
-
+SELECT MAX(o.total_sum)
+    FROM ch_orders o
+    WHERE CAST(TO_DATE('25.04.2021') AS VARCHAR(10))=
+                CAST(CAST(o.created_on AS DATE) AS VARCHAR(10))
+        AND o.deleted='N';
 --Показать клиента, который совершил максимальную сумму заказа в конкретную дату
 
 --Показать расписание работы конкретного бариста на неделю
