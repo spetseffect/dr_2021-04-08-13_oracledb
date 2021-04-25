@@ -59,7 +59,10 @@ SELECT *
                 CAST(CAST(created_on AS DATE) AS VARCHAR(10))
         AND deleted='N';
 --Показать информацию о заказах в указанном промежутке дат
-
+SELECT *
+    FROM ch_orders
+    WHERE created_on BETWEEN TO_DATE('18.04.2021') AND TO_DATE('30.04.2021')
+        AND deleted='N';
 --Показать количество заказов десертов в конкретную дату
 
 --Показать количество заказов напитков в конкретную дату
