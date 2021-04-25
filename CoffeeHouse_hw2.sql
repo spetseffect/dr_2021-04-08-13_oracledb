@@ -122,7 +122,11 @@ SELECT q.client_name
         LEFT JOIN ch_employees e ON e.id=q.employee_id
         LEFT JOIN ch_positions p ON p.id=e.position_id;
 --Показать среднюю сумму заказа в конкретную дату
-
+SELECT AVG(o.total_sum)
+    FROM ch_orders o
+    WHERE CAST(TO_DATE('25.04.2021') AS VARCHAR(10))=
+                CAST(CAST(o.created_on AS DATE) AS VARCHAR(10))
+        AND o.deleted='N';
 --Показать максимальную сумму заказа в конкретную дату
 
 --Показать клиента, который совершил максимальную сумму заказа в конкретную дату
