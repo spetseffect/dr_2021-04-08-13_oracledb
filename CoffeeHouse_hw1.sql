@@ -127,7 +127,9 @@ SELECT o.*
         LEFT JOIN ch_order_details od ON od.order_id=o.id
     WHERE od.product_id=5;
 --Показать расписание работы на конкретный день
-
+SELECT *
+    FROM ch_shedules_static
+    WHERE weekday='Пятница';
 --Показать все заказы конкретного официанта
 SELECT *
     FROM ch_orders
