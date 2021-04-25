@@ -64,7 +64,24 @@ SELECT *
     WHERE created_on BETWEEN TO_DATE('18.04.2021') AND TO_DATE('30.04.2021')
         AND deleted='N';
 --Показать количество заказов десертов в конкретную дату
-
+----учитывается только количество видов десертов (без учёта количества порций)
+SELECT COUNT(*)
+    FROM ch_orders o
+        LEFT JOIN ch_order_details od ON od.order_id=o.id
+        LEFT JOIN ch_goods g ON g.id=od.product_id
+    WHERE CAST(TO_DATE('25.04.2021') AS VARCHAR(10))=
+                CAST(CAST(o.created_on AS DATE) AS VARCHAR(10))
+        AND g.category_id=1
+        AND od.deleted='N';
+----количество порций всех видов десертов
+SELECT SUM(od.quantity)
+    FROM ch_orders o
+        LEFT JOIN ch_order_details od ON od.order_id=o.id
+        LEFT JOIN ch_goods g ON g.id=od.product_id
+    WHERE CAST(TO_DATE('25.04.2021') AS VARCHAR(10))=
+                CAST(CAST(o.created_on AS DATE) AS VARCHAR(10))
+        AND g.category_id=1
+        AND od.deleted='N';
 --Показать количество заказов напитков в конкретную дату
 
 --Показать информацию о клиентах, которые заказывали напитки сегодня.
