@@ -17,7 +17,7 @@ SELECT c.id, c.full_name, c.discount
     FROM ch_clients c
     WHERE c.discount=(SELECT MAX(discount) FROM ch_clients);
 --Показать среднюю величину скидки
-
+SELECT AVG(discount) FROM ch_clients;
 --Показать самого молодого клиента
 
 --Показать самого возрастного клиента
