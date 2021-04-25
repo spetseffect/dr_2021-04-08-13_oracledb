@@ -47,7 +47,9 @@ SELECT c.id
         AND EXTRACT(DAY FROM c.birthday)=EXTRACT(DAY FROM SYSDATE)
         AND c.deleted='N';
 --Показать клиентов, у которых не заполнен контактный почтовый адрес
-
+SELECT * 
+    FROM ch_clients
+    WHERE address IS NULL;
 --Показать информацию о заказах в конкретную дату
 
 --Показать информацию о заказах в указанном промежутке дат
