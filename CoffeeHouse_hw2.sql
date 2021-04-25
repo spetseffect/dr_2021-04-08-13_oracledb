@@ -51,7 +51,13 @@ SELECT *
     FROM ch_clients
     WHERE address IS NULL;
 --Показать информацию о заказах в конкретную дату
-
+----почему-то даты не хотели сравниваться - пришлось выполнить 
+----дополнительную конвертацию в VARCHAR(10)
+SELECT *
+    FROM ch_orders
+    WHERE CAST(TO_DATE('25.04.2021') AS VARCHAR(10))=
+                CAST(CAST(created_on AS DATE) AS VARCHAR(10))
+        AND deleted='N';
 --Показать информацию о заказах в указанном промежутке дат
 
 --Показать количество заказов десертов в конкретную дату
