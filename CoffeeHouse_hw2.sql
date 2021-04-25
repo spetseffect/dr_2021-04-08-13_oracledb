@@ -19,7 +19,13 @@ SELECT c.id, c.full_name, c.discount
 --Показать среднюю величину скидки
 SELECT AVG(discount) FROM ch_clients;
 --Показать самого молодого клиента
-
+SELECT c.id
+        ,c.full_name
+        ,c.birthday
+        ,EXTRACT(YEAR FROM (SYSDATE-c.birthday) YEAR TO MONTH) "AGE"
+        ,c.discount
+    FROM ch_clients c
+    WHERE c.birthday=(SELECT MAX(birthday) FROM ch_clients);
 --Показать самого возрастного клиента
 
 --Показать клиентов, у которых день рождения в этот день
